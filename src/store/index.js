@@ -15,7 +15,8 @@ export default new Vuex.Store({
     refresher: false,
     token: null,
     name: null,
-    allUsers: []
+    allUsers: [],
+    allPizzas: []
   },
   getters: {
     messages(state) {
@@ -51,8 +52,14 @@ export default new Vuex.Store({
     SET_LOADING_TEXT(state, payload) {
       state.loadingText = payload;
     },
+    SET_ALL_PIZZAS(state, payload) {
+      state.allPizzas = payload;
+    },
     SET_ALL_USERS(state, payload) {
       state.allUsers = payload;
+    },
+    SET_ALL_CHAT(state, payload) {
+      if (payload && payload.length > 0) state.chat = payload;
     }
   },
   actions: {
@@ -93,6 +100,12 @@ export default new Vuex.Store({
     },
     allUsers(ctx, payload) {
       ctx.commit("SET_ALL_USERS", payload);
+    },
+    allPizzas(ctx, payload) {
+      ctx.commit("SET_ALL_PIZZAS", payload);
+    },
+    allChat(ctx, payload) {
+      ctx.commit("SET_ALL_CHAT", payload);
     }
   },
   modules: {}

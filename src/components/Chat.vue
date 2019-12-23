@@ -1,9 +1,9 @@
 <template>
   <div id="chat">
     <el-card class="box-card">
-      <div slot="header" class="clearfix">
+      <div slot="header">
         <span>
-          <b>Nachrichten</b>
+          <b>Dischgur (die gunge Leid soogn a Chat)</b>
         </span>
       </div>
       <div>
@@ -23,11 +23,7 @@
           <el-divider></el-divider>
         </el-row>
         <el-row>
-          <el-input
-            v-model="msgBox"
-            placeholder="Deine Nachricht"
-            @keyup.enter.native="sendMessage"
-          ></el-input>
+          <el-input v-model="msgBox" placeholder="Soogn" @keyup.enter.native="sendMessage"></el-input>
         </el-row>
       </div>
     </el-card>
@@ -46,6 +42,7 @@ export default {
     sendMessage() {
       const m = this.msgBox;
       if (m.length < 1) return;
+      this.$socket.emit("getChats");
       this.$socket.emit("chatMessage", {
         username: this.$store.state.name,
         message: m

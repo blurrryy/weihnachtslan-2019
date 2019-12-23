@@ -11,10 +11,10 @@ const io = new socketIO(server);
 const adapter = new FileSync("data.json");
 
 const db = low(adapter);
-db.defaults({ user: [], chat: [] }).write();
+db.defaults({ user: [], chat: [], pizza: [] }).write();
 
 require("./socket.js")(io, db);
-app.use("/", express.static("/dist"));
+app.use("/", express.static("./dist"));
 
 server.listen(PORT, () => {
   console.log(`API listening @ Port ${PORT}`);
