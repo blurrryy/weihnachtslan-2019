@@ -1,26 +1,20 @@
 <template>
-  <div
-    id="app"
-    v-loading.fullscreen.lock="loading"
-    :element-loading-text="loadingText"
-    element-loading-spinner="el-icon-loading"
-  >
-    <el-container v-if="loggedIn &&!loading">
+  <div id="app" v-loading.fullscreen.lock="loading" :element-loading-text="loadingText"
+    element-loading-spinner="el-icon-loading">
+    <el-container v-if="loggedIn && !loading">
       <el-main>
         <el-row type="flex" justify="center" align="middle">
-          <h1 id="wlan_h">WeihnachtsLAN 2019</h1>
+          <h1 id="wlan_h">WeihnachtsLAN 2024</h1>
         </el-row>
         <el-row type="flex" justify="center" align="middle">
           <h1 id="wlan_h2">- Wie Hutznomd, ner mit Krieg -</h1>
         </el-row>
         <h3 style="color:white">
-          Ne Glick Auf, {{displayName}}!
-          <el-tag type="success" v-if="me? me.payed : false">Gald gaabm</el-tag>
-          <el-tag type="danger" v-if="me? !me.payed : false">Zech geprellt</el-tag>&nbsp;
-          <small
-            v-if="me && !me.payed"
-            style="color:white"
-          >Du bist e older Zechpreller. Dis geheert siech net. Wär scheen, wennde mol noch bezohln dätst.</small>
+          Ne Glick Auf, {{ displayName }}!
+          <el-tag type="success" v-if="me ? me.payed : false">Gald gaabm</el-tag>
+          <el-tag type="danger" v-if="me ? !me.payed : false">Zech geprellt</el-tag>&nbsp;
+          <small v-if="me && !me.payed" style="color:white">Du bist e older Zechpreller. Dis geheert siech net. Wär
+            scheen, wennde mol noch bezohln dätst.</small>
         </h3>
 
         <el-row :gutter="10">
@@ -45,22 +39,18 @@
         </el-row>
       </el-main>
     </el-container>
-    <el-container v-if="!loggedIn &&!loading">
+    <el-container v-if="!loggedIn && !loading">
       <el-container>
         <el-main>
           <el-row type="flex" justify="center" align="middle">
-            <h1 id="wlan_h">Willkommen zur WeihnachtsLAN 2019</h1>
+            <h1 id="wlan_h">Willkommen zur WeihnachtsLAN 2024</h1>
           </el-row>
           <el-row type="flex" justify="center" align="middle">
             <h1>Bitte verrate uns deinen richtigen Namen</h1>
           </el-row>
           <el-row type="flex" justify="center" align="middle">
             <el-col :span="10">
-              <el-input
-                v-model="name"
-                placeholder="Dein Name hier"
-                @keyup.enter.native="registerName"
-              ></el-input>
+              <el-input v-model="name" placeholder="Dein Name hier" @keyup.enter.native="registerName"></el-input>
             </el-col>
           </el-row>
           <el-row type="flex" justify="center" align="middle">

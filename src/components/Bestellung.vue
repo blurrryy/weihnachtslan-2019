@@ -4,18 +4,13 @@
       <div slot="header">
         <span>
           <b>Pizza Bestelling aufgaabm</b>&nbsp;
+          <el-button size="mini" type="success" @click="OpenFlyer()">Flyer</el-button>
         </span>
       </div>
       <div>
         <el-row>
           <el-col :span="12">
-            <el-form
-              ref="form"
-              :model="form"
-              label-width="120px"
-              :hide-required-asterisk="true"
-              :rules="rules"
-            >
+            <el-form ref="form" :model="form" label-width="120px" :hide-required-asterisk="true" :rules="rules">
               <el-form-item label="Nummer" prop="number">
                 <el-input v-model="form.number" placeholder="Die ausm Blaadl"></el-input>
               </el-form-item>
@@ -25,10 +20,7 @@
                 </el-input>
               </el-form-item>
               <el-form-item label="Bemerkungen" prop="bemerkungen">
-                <el-input
-                  v-model="form.bemerkungen"
-                  placeholder="Greeß, wus drzu, wus wag un Zeich"
-                ></el-input>
+                <el-input v-model="form.bemerkungen" placeholder="Greeß, wus drzu, wus wag un Zeich"></el-input>
               </el-form-item>
               <el-form-item>
                 <el-button type="success" @click="order">Aufgaabm</el-button>
@@ -85,6 +77,9 @@ export default {
         return;
       }
       this.form.preis = val.toFixed(2);
+    },
+    OpenFlyer() {
+      window.open('pizza.pdf', '_blank');
     }
   },
   computed: {
@@ -95,5 +90,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

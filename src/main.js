@@ -8,7 +8,7 @@ import locale from "element-ui/lib/locale/lang/de";
 
 import io from "socket.io-client";
 
-const connection = io("localhost:3000");
+const connection = io("wlan:3000");
 Vue.config.productionTip = false;
 
 Vue.prototype.$socket = connection;
@@ -18,5 +18,5 @@ Vue.use(ElementUI, { locale });
 new Vue({
   // router,
   store,
-  render: h => h(App)
+  render: (h) => h(App),
 }).$mount("#app");
