@@ -8,7 +8,7 @@ import locale from "element-ui/lib/locale/lang/de";
 
 import io from "socket.io-client";
 
-const connection = io("wlan:3000");
+const connection = io("wlan.lan:3000");
 Vue.config.productionTip = false;
 
 Vue.prototype.$socket = connection;
